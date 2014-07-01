@@ -6,7 +6,9 @@ from django.db import models
 
 
 class Migration(SchemaMigration):
-
+    depends_on = (
+        ('address', '0007_auto__chg_field_useraddress_postcode'),
+    )
     def forwards(self, orm):
         # Adding model 'OrderAndItemCharges'
         db.create_table(u'shipping_orderanditemcharges', (
