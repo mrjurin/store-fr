@@ -1,0 +1,2 @@
+django-oscar>=0.7
+django-oscar-paypal>=0.8.1
