@@ -9,6 +9,7 @@ class CheckoutApplication(app.CheckoutApplication):
     def get_urls(self):
         urls = super(CheckoutApplication, self).get_urls()
         urls.append(url(r'^paypal/', include('paypal.express.urls')))
+        urls.append(url(r'^optinCgv/', views.OptInCGV.as_view()))
         return urls
     payment_details_view = views.PaymentDetailsView
     shipping_address_view = views.ShippingAddressView
