@@ -37,7 +37,6 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('number', self.gf('django.db.models.fields.CharField')(max_length=128, db_index=True)),
             ('site', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['sites.Site'], null=True, on_delete=models.SET_NULL)),
-            ('basket', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['basket.Basket'], null=True, on_delete=models.SET_NULL, blank=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, related_name='orders', null=True, on_delete=models.SET_NULL, to=orm['auth.User'])),
             ('billing_address', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['order.BillingAddress'], null=True, on_delete=models.SET_NULL, blank=True)),
             ('currency', self.gf('django.db.models.fields.CharField')(default=u'EUR', max_length=12)),
