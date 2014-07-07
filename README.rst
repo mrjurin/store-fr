@@ -80,17 +80,12 @@ and your urls.py should look like :
     from django.contrib import admin
     admin.autodiscover()
 
-    from app import application
-    from paypal.express.dashboard.app import application as express_dashboard
-    from checkout.views import OptInCGV
+    from store.app import application
 
     admin.autodiscover()
 
     urlpatterns = [
         url(r'^i18n/', include('django.conf.urls.i18n')),
         url(r'^admin/', include(admin.site.urls)),
-        url(r'^checkout/paypal/', include('paypal.express.urls')),
-        url(r'^checkout/optinCgv/', OptInCGV.as_view()),
-        url(r'^dashboard/paypal/express/', include(express_dashboard.urls)),
         url(r'', include(application.urls)),
     ]
