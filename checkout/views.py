@@ -18,7 +18,7 @@ class ShippingAddressView(views.ShippingAddressView):
                       'check_user_email_is_captured',
                       'check_basket_requires_shipping')
     def post(self, request, *args, **kwargs):
-        cgv_accept = self.request.POST.get('chk_cgv', None) in ("on","yes", "true", "t", "1",True)
+        cgv_accept = self.checkout_session.get_cgu_status() == u"true"
         if not cgv_accept and 'address_id' not in self.request.POST:
             return HttpResponseBadRequest()
         return super(ShippingAddressView, self).post(request, *args, **kwargs)

@@ -18,6 +18,7 @@ class StoreFR(Shop):
     def get_urls(self):
         urls = super(StoreFR, self).get_urls()
         urls.append(url(r'^dashboard/paypal/express/', include(express_dashboard.urls)))
+        urls.append(url(r'^checkout/paypal/', include('paypal.express.urls')))
         return urls
 
 application = StoreFR()
